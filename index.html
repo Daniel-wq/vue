@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+    <link rel="stylesheet" href="node_modules/_bootstrap@3.3.7@bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div id="app" class="container">
+    <h2 class="text-center">网站登录</h2>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">网站注册</h3>
+        </div>
+        <div class="panel-body">
+            <form action="" method="post" role="form">
+
+                <div :is="type"></div>
+                <div class="form-group">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="name" v-model="type" value="email" checked="checked">
+                            邮箱注册
+                        </label>
+                        <label>
+                            <input type="radio" name="name" v-model="type" value="phone" checked="checked">
+                            手机号注册
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="">账号</label>
+                    <input type="text" class="form-control" name="" id="" placeholder="请输入您的账号">
+                </div>
+
+                <div class="form-group">
+                    <label for="">密码</label>
+                    <input type="password" class="form-control" name="" id="" placeholder="请输入您的密码">
+                </div>
+
+                <div class="form-group">
+                    <label for="">再次确认</label>
+                    <input type="password" class="form-control" name="" id="" placeholder="请再次输入你的密码">
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">注册</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<!--手机组件-->
+<script type="text/x-template" id="tell">
+    <div class="form-group">
+        <label for="">手机号</label>
+        <input type="text" class="form-control" name="" id="" placeholder="请输入您的手机号">
+    </div>
+
+</script>
+<!--邮箱注册-->
+<script type="text/x-template" id="email">
+    <div class="form-group">
+        <label for="">邮箱</label>
+        <input type="text" class="form-control" name="" id="" placeholder="请输入你的邮箱">
+    </div>
+
+</script>
+<script>
+    new Vue({
+        el:'#app',
+        components:{
+            phone:{template:'#tell'},
+            email:{template:'#email'}
+        },
+        data:{
+            type:'phone'
+        }
+    })
+</script>
+</body>
+</html>
